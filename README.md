@@ -5,10 +5,7 @@ Python Text-to-Speech Interface using IBM's Watson Text-To-Speech
 
     pip3 install watson-text-talker --user
 
-### Get Watson Credentials
-
-#### Sign up for Lite Version(free) Watson Text-To-Speech [here](https://console.bluemix.net/catalog/services/text-to-speech)
-
+### Get credentials for Watson Text-To-Speech Lite Version(FREE)  [here](https://console.bluemix.net/catalog/services/text-to-speech)
 
 ### Use
 
