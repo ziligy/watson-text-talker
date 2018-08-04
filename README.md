@@ -29,8 +29,8 @@ text_talker.say("Hello world!")
     - each segment can have it's own importance factor
 * #### Importance factors
     - optional percentage chance that a phrase will be voiced
-* #### Quiet factor
-    - optional quiet factor can be applied to all optional phrases
+* #### Quiet level
+    - optional quiet level factor can be applied to all optional phrases
     - increases or decreases the likelihood that an optional phrase will be voiced
 * #### Uses high-quality Waston voices
     - very realistic sounding, with appropriate cadence and intonation
@@ -38,7 +38,60 @@ text_talker.say("Hello world!")
     - free tier plan: no credit card required, 10,000 characters per month at no cost
 
 ### Voice file cacheing
-The package always caches new phrases to a file. The cache directory defaults to `./voice_mp3s`, but can also be defined in TT_Config. To regulate the filename I slugify the phrase. This has the advantage of making it human readable. The only caveat is the phrase MUST be limited to 255 characters. 
+The package *always* caches new phrases to a file. The cache directory defaults to `./voice_mp3s`, but can also be defined in TT_Config. To regulate the filename I slugify the phrase. This has the advantage of making it human readable. The only caveat is the phrase MUST be limited to 255 characters.
+
+### Phrase grouping
+Phrase grouping is based on array of tuples.
+
+```python
+
+    importance = TT_Importance()
+
+    grouping_example = [(importance.SAY_30_PERCENT, "I'm your assistant."), (importance.SAY_50_PERCENT, "How are you?"), (importance.SAY_ALWAYS, "Nice to meet you") ]
+
+    text_talker.say_group(grouping_example)
+```
+
+Tuples are made up of the importance & the text phrase.
+
+### Importance factors
+```python
+# TT_Importance is a class of numeric constants
+    SAY_ALWAYS = 1
+    SAY_90_PERCENT = 2
+    SAY_80_PERCENT = 3
+    SAY_70_PERCENT = 4
+    SAY_60_PERCENT = 5
+    SAY_50_PERCENT = 6
+    SAY_40_PERCENT = 7
+    SAY_30_PERCENT = 8
+    SAY_20_PERCENT = 9
+    SAY_10_PERCENT = 10
+    SAY_NEVER = 11
+```
+
+For the same as above we could have just as easily said:
+```python
+    grouping_example = [(8, "I'm your assistant."), (6, "How are you?"), (1, "Nice to meet you") ]
+
+    text_talker.say_group(grouping_example)
+```
+
+### Quiet level
+The package includes a `quite level` that increases or decreases the likelihood that an optional phrase will be voiced.
+
+```python
+
+    importance = TT_Importance()
+
+    grouping_example = [(importance.SAY_30_PERCENT, "I'm your assistant."), (importance.SAY_ALWAYS, "Nice to meet you") ]
+
+    text_talker.quiet_level = +2
+
+    text_talker.say_group(grouping_example)
+```
+
+In the above example the `I'm your assistant` phrase will only be said 10% of the time because of the +2 assigned to quiet level. The `Nice to meet you` is not effected.
 
 ### Attributions
 
@@ -48,7 +101,3 @@ The package always caches new phrases to a file. The cache directory defaults to
 
 
 
-
-
-
-    
