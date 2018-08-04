@@ -38,8 +38,7 @@ text_talker.say("Hello world!")
     - free tier plan: no credit card required, 10,000 characters per month at no cost
 
 ### Voice file cacheing
-
-
+The package always caches new phrases to a file. The cache directory defaults to `./voice_mp3s`, but can also be defined in TT_Config. To regulate the filename I slugify the phrase. This has the advantage of making it human readable. The only caveat is the phrase MUST be limited to 255 characters. 
 
 ### Attributions
 
