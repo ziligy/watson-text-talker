@@ -1,5 +1,7 @@
 # watson-text-talker
-Python Text-to-Speech Interface using IBM's Watson Text-To-Speech
+
+### About
+I created this interface for a voice-based-bot that I'm running on a Raspberry Pi 3B. I'm using the AIY Voice HAT. I was very displeased the robotic-voice that's supplied by Google. After studying a few other voice options I decided on IBM's Waston because of it's high quality cadence and intonation. I added some features for my purposes and decided others may find some benefit in my effort.
 
 ### Installation
 
@@ -19,22 +21,30 @@ text_talker.say("Hello world!")
 
 ### Features
 
-* Voice file cacheing
-    - lowers cloud roundtrips
+* #### Voice file cacheing
+    - lowers cloud round-trips
     - keeps cost down
-* Phrase grouping
+* #### Phrase grouping
     - segments phrases/sentences
     - each segment can have it's own importance factor
-* Importance factors
+* #### Importance factors
     - optional percentage chance that a phrase will be voiced
-* Quiet factor
+* #### Quiet factor
     - optional quiet factor can be applied to all optional phrases
-* Uses high-quality Waston voices
+    - increases or decreases the likelihood that an optional phrase will be voiced
+* #### Uses high-quality Waston voices
     - very realistic sounding, with appropriate cadence and intonation
     - voice selection: English(US: 2 female, 1 male), English(UK), Spanish, Japanese, French, German, Spanish (Castilian), Portuguese (Brazil)
     - free tier plan: no credit card required, 10,000 characters per month at no cost
 
+### Voice file cacheing
 
+
+
+### Attributions
+
+* [pygame](https://github.com/pygame/pygame) is used to process the mp3 voice files
+* [python-slugify](https://github.com/un33k/python-slugify) is used to create cache file names
 
 
 
