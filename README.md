@@ -78,7 +78,7 @@ For the same as above we could have just as easily said:
 ```
 
 ### Quiet level
-The package includes a `quite level` that increases or decreases the likelihood that an optional phrase will be voiced.
+The package includes a globally applied `quite level` that increases or decreases the likelihood that an optional phrase will be voiced.
 
 ```python
 
