@@ -104,7 +104,7 @@ The package includes a globally applied `quite level` that increases or decrease
 In the above example the `I'm your assistant` phrase will only be said 10% of the time because of the +2 assigned to quiet level. The `Nice to meet you` is not effected.
 
 ### Config
-use the TT_Config class to override confiuration defaults
+use the TT_Config class to override configuration defaults
 
 ```python
 # TT_Config's standard defaults
