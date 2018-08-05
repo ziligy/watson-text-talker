@@ -44,6 +44,9 @@ The package *always* caches new phrases to a file. The cache directory defaults 
 Phrase grouping is based on array of tuples.
 
 ```python
+    from watson_text_talker import *
+
+    text_talker = TextTalker(username='credentials-username', password='credentials-password')
 
     importance = TT_Importance()
 
@@ -72,6 +75,10 @@ Tuples are made up of the importance & the text phrase.
 
 For the same as above we could have just as easily said:
 ```python
+    from watson_text_talker import *
+
+    text_talker = TextTalker(username='credentials-username', password='credentials-password')
+
     grouping_example = [(8, "I'm your assistant."), (6, "How are you?"), (1, "Nice to meet you") ]
 
     text_talker.say_group(grouping_example)
@@ -81,6 +88,9 @@ For the same as above we could have just as easily said:
 The package includes a globally applied `quite level` that increases or decreases the likelihood that an optional phrase will be voiced.
 
 ```python
+    from watson_text_talker import *
+
+    text_talker = TextTalker(username='credentials-username', password='credentials-password')
 
     importance = TT_Importance()
 
@@ -92,6 +102,38 @@ The package includes a globally applied `quite level` that increases or decrease
 ```
 
 In the above example the `I'm your assistant` phrase will only be said 10% of the time because of the +2 assigned to quiet level. The `Nice to meet you` is not effected.
+
+### Config
+use the TT_Config class to override confiuration defaults
+
+```python
+# TT_Config's standard defaults
+
+    USERNAME='--watson tts credentials username goes here--'
+    PASSWORD='--watson tts credentials password goes here--'
+
+    TTS_VOICE = 'en-US_AllisonVoice'
+    TTS_ACCEPT = 'audio/mp3'
+
+    CACHE_DIRECTORY = 'voice_mp3s'
+    CACHE_DIRECTORY_IS_RELATIVE = True
+    VOICE_FILE_EXTENSION = 'mp3'
+```
+
+Use it like so:
+```python
+    from watson_text_talker import *
+
+    config = TT_Config()
+    config.CREDENTIALS_USERNAME='your watson credentials'
+    config.CREDENTIALS_PASSWORD='your watson password'
+    config.TTS_Voice = 'en-US_MichaelVoice'
+    congig.CACHE_DIRECTORY = 'custom_cache'
+
+    text_talker = TextTalker(config=config)
+
+    text_talker.say("Hello world!")
+```
 
 ### Attributions
 
