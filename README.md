@@ -1,7 +1,7 @@
 # watson-text-talker
 
 ### About
-I created this interface for a voice-based-bot that I'm running on a Raspberry Pi 3B. I'm using the AIY Voice HAT, but I was very displeased the robotic-voice that's supplied by Google. After studying a few other voice options I decided on IBM's Watson because of it's high quality cadence and intonation. I added some features for my purposes and decided others may find some benefit in my effort. The package should work in other internet-connected & sound-output-capable devices.
+I created this interface for a voice-based-bot that I'm running on a Raspberry Pi 3B. I'm using the AIY Voice HAT, but I was very displeased with the robotic-voice that's supplied by Google. After studying a few other voice options I decided on IBM's Watson because of it's high quality cadence and intonation. I added some features for my purposes and decided others may find some benefit in my effort. The package should work in other internet-connected & sound-output-capable devices.
 
 ### Installation
 
@@ -34,7 +34,7 @@ text_talker.say("Hello world!")
     - increases or decreases the likelihood that an optional phrase will be voiced
 * #### Uses high-quality Waston voices
     - very realistic sounding, with appropriate cadence and intonation
-    - voice selection: English(US: 2 female, 1 male), English(UK), Spanish, Japanese, French, German, Spanish (Castilian), Portuguese (Brazil)
+    - voice selection: [see here for selection available](https://www.ibm.com/watson/developercloud/text-to-speech/api/v1/curl.html?curl#get-voice)
     - free tier plan: no credit card required, 10,000 characters per month at no cost
 
 ### Voice file cacheing
