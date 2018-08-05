@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="watson_text_talker",
-    version="0.8.9",
+    version="0.8.10",
     author="Jeff Greenberg",
     author_email="jeff@ziligy.com",
     description="Simple Text-to-Speech Interface for Raspberry Pi using IBM's Watson TTS",
@@ -17,6 +17,9 @@ setuptools.setup(
     license = "MIT",
     classifiers=(
         "Programming Language :: Python :: 3",
+        "Topic :: Home Automation",
+        "Topic :: Multimedia :: Sound/Audio :: Speech",
+        "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ),

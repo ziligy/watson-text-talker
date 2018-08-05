@@ -19,7 +19,7 @@ import pygame
 # pip install python-slugify
 from slugify import slugify
 
-import os
+import os, time
 
 from random import randrange
 
@@ -33,8 +33,16 @@ class TT_Config:
     TTS_ACCEPT = 'audio/mp3'
 
     CACHE_DIRECTORY = 'voice_mp3s'
+
+    # when True cache direcory will be relative to the current working directory
+    # if False then cache directory should be fully pathed
     CACHE_DIRECTORY_IS_RELATIVE = True
+
     VOICE_FILE_EXTENSION = 'mp3'
+
+    # some environments may require a delay if first speech is cut off
+    # generally 1, 2 or 3 seconds will work
+    INITIALIZATION_DELAY = 0
 
 
 class TT_Importance:
@@ -139,12 +147,10 @@ class TextTalker:
 
     def init_cache_directory(self):
 
-        realpath = os.path.dirname(os.path.realpath(__file__))
-
         self.cache_directory = self.config.CACHE_DIRECTORY
 
         if self.config.CACHE_DIRECTORY_IS_RELATIVE:
-            self.cache_directory = os.path.join(realpath, self.cache_directory)
+            self.cache_directory = os.path.join(os.getcwd(), self.cache_directory)
 
         if not os.path.exists(self.cache_directory):
             os.makedirs(self.cache_directory)
@@ -160,6 +166,9 @@ class TextTalker:
     # OR optionally use TT_Config which should have the credentials assigned, within
     def __init__(self, username=None,  password=None, config=None):
 
+        pygame.init()
+        pygame.mixer.init()
+
         if config == None:
             self.config = TT_Config()
         else:
@@ -170,9 +179,8 @@ class TextTalker:
         if password != None:
             self.config.PASSWORD = password
 
-        pygame.init()
-        pygame.mixer.init()
-
         self.init_watson_tts()
         self.init_cache_directory()
+
+        time.sleep(self.config.INITIALIZATION_DELAY)
 

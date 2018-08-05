@@ -116,8 +116,16 @@ use the TT_Config class to override configuration defaults
     TTS_ACCEPT = 'audio/mp3'
 
     CACHE_DIRECTORY = 'voice_mp3s'
+
+    # when True cache direcory will be relative to the current working directory
+    # if False then cache directory should be fully pathed
     CACHE_DIRECTORY_IS_RELATIVE = True
+
     VOICE_FILE_EXTENSION = 'mp3'
+
+    # some environments may require a delay if first speech is cut off
+    # generally 1, 2 or 3 seconds will work
+    INITIALIZATION_DELAY = 0
 ```
 
 Use it like so:
