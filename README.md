@@ -137,6 +137,7 @@ Use it like so:
     config.CREDENTIALS_PASSWORD='your watson password'
     config.TTS_Voice = 'en-US_MichaelVoice'
     congig.CACHE_DIRECTORY = 'custom_cache'
+    congig.INITIALIZATION_DELAY = 1
 
     text_talker = TextTalker(config=config)
 
