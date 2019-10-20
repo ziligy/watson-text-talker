@@ -14,7 +14,7 @@ I created this interface for a voice-based-bot that I'm running on a Raspberry P
 ```python
 from watson_text_talker import *
 
-text_talker = TextTalker(username='your-watson-tts-credentials-username', password='your-watson-tts-credentials-password')
+text_talker = TextTalker(api_key='your-watson-tts-api-key')
 
 text_talker.say("Hello world!")
 ```
@@ -46,7 +46,7 @@ Phrase grouping is based on array of tuples.
 ```python
     from watson_text_talker import *
 
-    text_talker = TextTalker(username='credentials-username', password='credentials-password')
+    text_talker = TextTalker(api_key='your-api-key')
 
     importance = TT_Importance()
 
@@ -77,7 +77,7 @@ For the same as above we could have just as easily said:
 ```python
     from watson_text_talker import *
 
-    text_talker = TextTalker(username='credentials-username', password='credentials-password')
+    text_talker = TextTalker(api_key='your_api_key')
 
     grouping_example = [(8, "I'm your assistant."), (6, "How are you?"), (1, "Nice to meet you") ]
 
@@ -90,7 +90,7 @@ The package includes a globally applied `quite level` that increases or decrease
 ```python
     from watson_text_talker import *
 
-    text_talker = TextTalker(username='credentials-username', password='credentials-password')
+    text_talker = TextTalker(api_key='your_api_key')
 
     importance = TT_Importance()
 
@@ -109,8 +109,10 @@ use the TT_Config class to override configuration defaults
 ```python
 # TT_Config's standard defaults
 
-    USERNAME='--watson tts credentials username goes here--'
-    PASSWORD='--watson tts credentials password goes here--'
+    API_KEY='--watson tts credentials api-key goes here--'
+    
+    # TTS API URL  
+    API_URL='https://gateway-lon.watsonplatform.net/text-to-speech/api'
 
     TTS_VOICE = 'en-US_AllisonVoice'
     TTS_ACCEPT = 'audio/mp3'
@@ -133,8 +135,8 @@ Use it like so:
     from watson_text_talker import *
 
     config = TT_Config()
-    config.CREDENTIALS_USERNAME='your watson credentials'
-    config.CREDENTIALS_PASSWORD='your watson password'
+    config.API_KEY='your watson tts api-key'
+    config.API_URL='if you need to update API URL, update this'
     config.TTS_Voice = 'en-US_MichaelVoice'
     congig.CACHE_DIRECTORY = 'custom_cache'
     congig.INITIALIZATION_DELAY = 1
